@@ -55,7 +55,7 @@ func (b *Bullet) Team() int {
 }
 
 func (b *Bullet) BodyDamage() int {
-	x = rand.Intn(100)
+	x := rand.Intn(100)
 	if x % 25 == 1 {
 		return b.owner.ability(BulletDamage) * 20
 	}
