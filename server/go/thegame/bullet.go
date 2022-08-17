@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math"
+	"math/rand"
 
 	"github.com/square-melon/thegame/server/go/thegame/pb"
 )
@@ -54,6 +55,9 @@ func (b *Bullet) Team() int {
 }
 
 func (b *Bullet) BodyDamage() int {
+	x = rand.Intn(100)
+	if (x % 25 == 1)
+		return b.ower.ability(BulletDamage * 20)
 	return b.owner.ability(BulletDamage)
 }
 
