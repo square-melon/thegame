@@ -4,7 +4,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/afg984/thegame/server/go/thegame/pb"
+	"github.com/square-melon/thegame/server/go/thegame/pb"
 
 	"github.com/golang/protobuf/proto"
 )
