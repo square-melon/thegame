@@ -1,4 +1,4 @@
-module github.com/afg984/thegame/server/go/thegame
+module github.com/square-melon/thegame/server/go/thegame
 
 go 1.12
 
