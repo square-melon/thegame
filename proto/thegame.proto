@@ -1,0 +1,105 @@
+syntax = "proto3";
+
+option go_package = "pb";
+
+service TheGame {
+    rpc Game(stream Controls) returns (stream GameState);
+    rpc View(ViewRequest) returns (stream GameState);
+    rpc Admin(Command) returns (CommandResponse);
+}
+
+message Controls {
+    bool accelerate = 1;
+    double acceleration_direction = 2;
+    bool shoot = 3;
+    double shoot_direction = 4;
+    repeated Ability level_up = 5;
+    string name = 6;  // only valid on first message
+}
+
+message ViewRequest {
+    string token = 1;
+}
+
+enum Ability {
+    health_regen = 0;
+    max_health = 1;
+    body_damage = 2;
+    bullet_speed = 3;
+    bullet_penetration = 4;
+    bullet_damage = 5;
+    bullet_reload = 6;
+    movement_speed = 7;
+}
+
+message GameState {
+    Meta meta = 1;
+    message Meta {
+        int32 hero_id = 2;
+        Vector center_position = 5;
+        repeated ScoreEntry scores = 4;
+    }
+    repeated Polygon polygons = 2;
+    repeated Bullet bullets = 3;
+    repeated Hero heroes = 4;
+}
+
+message Entity {
+    int32 id = 1;
+    Vector position = 2;
+    double radius = 3;
+    Vector velocity = 4;
+    int32 health = 5;
+    int32 body_damage = 6;
+    int32 rewarding_experience = 7;
+    int32 max_health = 8;
+}
+
+message Vector {
+    double x = 1;
+    double y = 2;
+}
+
+message ScoreEntry {
+    int32 hero_id = 1;
+    string hero_name = 2;
+    int32 score = 3;
+    int32 level = 4;
+}
+
+message Polygon {
+    Entity entity = 1;
+    int32 edges = 2;
+}
+
+message Bullet {
+    Entity entity = 1;
+    int32 owner = 2;
+}
+
+message Hero {
+    Entity entity = 1;
+    repeated int32 ability_levels = 2;
+    repeated int32 ability_values = 3;
+    int32 skill_points = 4;
+    double orientation = 5;
+    int32 level = 6;
+    int32 score = 7;
+    int32 experience = 8;
+    int32 experience_to_level_up = 9;
+    int32 cooldown = 10;
+    int32 health_regen_cooldown = 11;
+    string name = 12;
+}
+
+message Command {
+    string token = 1;
+    bool resume = 2;
+    bool pause = 3;
+    bool tick = 4;
+    bool game_reset = 5;
+    bool wait_for_controls = 6;
+}
+
+message CommandResponse {
+}
