@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"math/cmplx"
+	"math/rand"
 
 	"github.com/square-melon/thegame/server/go/thegame/pb"
 )
@@ -111,6 +112,10 @@ func (h *Hero) ability(a int) int {
 }
 
 func (h *Hero) BodyDamage() int {
+	x := rand.Intn(200)
+	if x % 40 == 1 {
+		return h.ability(BodyDamage) * 12
+	}
 	return h.ability(BodyDamage)
 }
 

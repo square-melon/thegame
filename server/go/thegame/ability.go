@@ -22,11 +22,11 @@ func linearScale(at0, at8 int) [9]int {
 
 var AbilityValues = [NAbilities][9]int{
 	{0, 1, 1, 2, 2, 3, 3, 4, 5},                                   // HealthRegen
-	{1400, 1800, 2200, 2700, 3200, 3700, 4300, 5000, 5700},        // MaxHealth
-	{15, 18, 22, 27, 33, 38, 45, 55, 65},                          // BodyDamage
+	{1400, 1800, 2200, 2700, 3200, 3700, 4300, 5500, 6500},        // MaxHealth
+	{15, 18, 22, 27, 33, 38, 45, 58, 68},                          // BodyDamage
 	linearScale(8, 20),                                            // BulletSpeed
 	linearScale(40, 120),                                          // BulletPenetration
-	{12, 16, 20, 24, 28, 33, 37, 42, 48},                          // BulletDamage
-	{15, 14, 13, 12, 10, 9, 8, 7, 6},                                // Reload
+	{12, 16, 20, 24, 28, 33, 37, 45, 55},                          // BulletDamage
+	{15, 14, 13, 12, 11, 10, 9, 8, 7},                                // Reload
 	linearScale(6, 14),                                            // MovementSpeed
 }
