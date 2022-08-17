@@ -27,6 +27,6 @@ var AbilityValues = [NAbilities][9]int{
 	linearScale(8, 20),                                            // BulletSpeed
 	linearScale(40, 120),                                          // BulletPenetration
 	{12, 16, 20, 24, 28, 33, 37, 42, 48},                          // BulletDamage
-	{15, 14, 13, 12, 10, 9, 8, 7, 5},                                // Reload
+	{15, 14, 13, 12, 10, 9, 8, 7, 6},                                // Reload
 	linearScale(6, 14),                                            // MovementSpeed
 }
